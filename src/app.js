@@ -14,9 +14,9 @@ if (config.env === "dev") app.use(morgan("dev"));
 app.use(express.json({ limit: "16mb" }));
 app.use(express.urlencoded({ extended: false, limit: "16mb" }));
 app.use(cors());
-// app.options("*", cors());
 
 /* routes */
+app.use(express.static("../client/dist"));
 app.get("/", (req, res) => res.status(200).json({ status: "pass" }));
 app.get(config.api.path, (req, res) => res.status(200).json({ status: "pass" }));
 app.use(`${config.api.path}/auth`, authRouter);
