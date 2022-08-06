@@ -1,6 +1,6 @@
 # Social
 
-A simple social-media app
+A simple social-media express app
 
 ## Setup
 
