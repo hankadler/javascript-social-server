@@ -2,7 +2,8 @@ import cookie from "cookie";
 import config from "../../../config";
 
 const unsetCookie = async (res) => {
-  res.setHeader("Set-Cookie", cookie.serialize("token", "", { sameSite: true }));
+  const cookieOptions = { path: config.api.path, sameSite: true };
+  res.setHeader("Set-Cookie", cookie.serialize("token", "", cookieOptions));
 };
 
 const setCookie = async (res, token) => {
