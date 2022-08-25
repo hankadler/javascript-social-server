@@ -1,3 +1,5 @@
+import { dirname } from "path";
+import { fileURLToPath } from "url";
 import "dotenv/config";
 
 // input
@@ -10,6 +12,7 @@ const _jwtExpiresIn = "1h"; // JWT validity duration
 const _cookieMaxAge = "3600"; // cookie duration in seconds
 
 // output
+const root = dirname(fileURLToPath(import.meta.url));
 const app = _app || "app";
 const env = _env || "dev";
 const api = { version: _apiVersion || "1" };
@@ -35,6 +38,7 @@ const {
 } = process.env;
 
 export default {
+  root,
   env,
   api,
   port,

@@ -12,3 +12,7 @@
 !package.json
 !package-lock.json
 !README.md
+
+# exclude again
+src/data
+src/data/**

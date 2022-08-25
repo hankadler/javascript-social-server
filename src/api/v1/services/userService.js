@@ -1,3 +1,5 @@
+import fs from "fs";
+import config from "../../../config";
 import User from "../models/User";
 import AuthError from "../errors/AuthError";
 import ValueError from "../errors/ValueError";
@@ -25,4 +27,20 @@ const createUser = async (
   })
 );
 
-export { createUser };
+const getUserIds = async () => {
+  const userIds = await User.find().select("_id");
+  return userIds.map(({ _id }) => _id);
+};
+
+const writeUserIds = () => {
+  getUserIds().then((ids) => {
+    const json = JSON.stringify(ids, null, 2);
+    fs.writeFileSync(`${config.root}/data/userIds.json`, json, { encoding: "utf8" });
+  });
+};
+
+const readUserIds = () => (
+  JSON.parse(fs.readFileSync(`${config.root}/data/userIds.json`, { encoding: "utf8" }))
+);
+
+export { createUser, writeUserIds, readUserIds };

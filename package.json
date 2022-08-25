@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "A simple social-media app",
   "main": "src/index.js",
+  "nodemonConfig": {
+    "ignore": ["src/data/*"]
+  },
   "jest": {
     "testEnvironment": "jest-environment-node",
     "transform": {}
