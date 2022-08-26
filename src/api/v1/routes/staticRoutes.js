@@ -20,6 +20,4 @@ readUserIds().forEach((userId) => {
 });
 readConversationIds().forEach((conversationId) => routes.push(`/conversations/${conversationId}`));
 
-console.log(routes);
-
 export default routes;
