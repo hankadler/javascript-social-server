@@ -6,10 +6,11 @@ import { createUser } from "../../src/api/v1/services/userService";
 import database from "../../src/db";
 
 const setupDB = async (env, keepAlive = false) => {
-  if (env === "prod") {
-    console.error("Operation available only in 'dev' or 'test' environment!");
-    process.exit(1);
-  }
+  // todo: ask to proceed in prod
+  // if (env === "prod") {
+  //   console.error("Operation available only in 'dev' or 'test' environment!");
+  //   process.exit(1);
+  // }
 
   await database.connect(config.db.uri[env || config.env]);
 
