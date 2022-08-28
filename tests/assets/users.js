@@ -1,10 +1,11 @@
+import config from "../../src/config";
 import images from "./images";
 
 export default [
   {
     name: "Gutz",
     email: "gutz@email.com",
-    password: "1234",
+    password: config.fakePass,
     activated: true,
     about: "I like steaks & meatballs.",
     image: images.gutz,
@@ -42,12 +43,9 @@ export default [
   {
     name: "Griffith",
     email: "griffith@email.com",
-    password: "1234",
+    password: config.fakePass,
     activated: true,
-    about: "Dreams breathe life into men and compels them to overcome. Men are lifted by their"
-      + " dreams, transfigured by their dreams, crushed by their dreams, even killed by their"
-      + " dreams. And yet, long after the flame of youth has been extinguished, dreams still"
-      + " smolder in their hearts.",
+    about: "Some see nothing more than life and death. They are dead, for they have no dreams.",
     image: images.griffith,
     media: [
       {
@@ -78,7 +76,7 @@ export default [
   {
     name: "Cloud Strife",
     email: "cloud@email.com",
-    password: "1234",
+    password: config.fakePass,
     activated: true,
     about: "Before sacrificing it all, we must ask ourselves why.",
     image: images.cloud,
@@ -101,7 +99,7 @@ export default [
   {
     name: "Sephiroth Crescent",
     email: "sephiroth@email.com",
-    password: "1234",
+    password: config.fakePass,
     activated: true,
     about: "That which lies ahead does not yet exist.",
     image: images.sephiroth,
@@ -124,7 +122,7 @@ export default [
   {
     name: "Goku",
     email: "goku@email.com",
-    password: "1234",
+    password: config.fakePass,
     activated: true,
     about: "If you want to improve, be content to be thought foolish and stupid.",
     image: images.goku,
@@ -147,7 +145,7 @@ export default [
   {
     name: "Vegeta",
     email: "vegeta@email.com",
-    password: "1234",
+    password: config.fakePass,
     activated: true,
     about: (
       "What ought one to say then as each hardship comes? \nI was practicing for this, I was"
@@ -173,7 +171,7 @@ export default [
   {
     name: "Kenshin Himura",
     email: "kenshin@email.com",
-    password: "1234",
+    password: config.fakePass,
     activated: true,
     about: "The will to live is stronger than anything.",
     image: images.kenshin,
@@ -191,7 +189,7 @@ export default [
   {
     name: "Makoto Shishio",
     email: "makoto@email.com",
-    password: "1234",
+    password: config.fakePass,
     activated: true,
     about: "In this world, only the fittest survive.",
     image: images.shishio,

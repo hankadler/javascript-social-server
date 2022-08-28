@@ -36,6 +36,7 @@ const {
   EMAIL_HOST: emailHost,
   EMAIL_PORT: emailPort,
 } = process.env;
+const { FAKE_PASS: fakePass } = process.env;
 
 export default {
   root,
@@ -50,5 +51,6 @@ export default {
   emailUser,
   emailPass,
   emailHost,
-  emailPort
+  emailPort,
+  fakePass
 };
