@@ -1,3 +1,4 @@
+import fs from "fs";
 import config from "./config";
 import db from "./db";
 import app from "./app";
@@ -8,6 +9,7 @@ let server;
 
 db.connect(config.db.uri[config.env])
   .then(() => {
+    if (!fs.existsSync(`${config.root}/data`)) fs.mkdirSync(`${config.root}/data`);
     writeUserIds();
     writeConversationIds();
     server = app.listen(config.port, () => console.log(`\nServer on port: ${config.port}\n`));
