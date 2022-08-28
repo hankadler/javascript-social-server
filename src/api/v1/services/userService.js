@@ -4,6 +4,8 @@ import User from "../models/User";
 import AuthError from "../errors/AuthError";
 import ValueError from "../errors/ValueError";
 
+const file = `${config.root}/data/userIds.json`;
+
 const createUser = async (
   name,
   email,
@@ -35,12 +37,16 @@ const getUserIds = async () => {
 const writeUserIds = () => {
   getUserIds().then((ids) => {
     const json = JSON.stringify(ids, null, 2);
-    fs.writeFileSync(`${config.root}/data/userIds.json`, json, { encoding: "utf8" });
+    fs.writeFileSync(file, json, { encoding: "utf8" });
   });
 };
 
-const readUserIds = () => (
-  JSON.parse(fs.readFileSync(`${config.root}/data/userIds.json`, { encoding: "utf8" }))
-);
+const readUserIds = () => {
+  try {
+    return JSON.parse(fs.readFileSync(file, { encoding: "utf8" }));
+  } catch {
+    return [];
+  }
+};
 
 export { createUser, writeUserIds, readUserIds };

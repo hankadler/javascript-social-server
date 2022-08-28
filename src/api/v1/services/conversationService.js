@@ -4,6 +4,8 @@ import config from "../../../config";
 import User from "../models/User";
 import { getOrDie } from "./httpService";
 
+const file = `${config.root}/data/conversationIds.json`;
+
 /**
  * Find message by id.
  */
@@ -25,12 +27,16 @@ const getConversationIds = async () => {
 const writeConversationIds = () => {
   getConversationIds().then((ids) => {
     const json = JSON.stringify(ids, null, 2);
-    fs.writeFileSync(`${config.root}/data/conversationIds.json`, json, { encoding: "utf8" });
+    fs.writeFileSync(file, json, { encoding: "utf8" });
   });
 };
 
-const readConversationIds = () => (
-  JSON.parse(fs.readFileSync(`${config.root}/data/conversationIds.json`, { encoding: "utf8" }))
-);
+const readConversationIds = () => {
+  try {
+    return JSON.parse(fs.readFileSync(file, { encoding: "utf8" }));
+  } catch {
+    return [];
+  }
+};
 
 export { findMessage, writeConversationIds, readConversationIds };
